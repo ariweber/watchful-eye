@@ -2,24 +2,50 @@ import "./AlertCard.css";
 import type { Alert } from "../../types/alerts.type";
 
 type AlertCardProps = {
-  alert: Alert;
+    alert: Alert;
+    onEdit: () => void;
+    onDelete: () => void;
 };
 
-export default function AlertCard({ alert }: AlertCardProps) {
-  return (
-    <div className="card">
-      <div className="card-top">
-        <h1>{alert.displayName}</h1>
-        <span>{alert.status}</span>
-      </div>
+export default function AlertCard({ alert, onEdit, onDelete }: AlertCardProps) {
+    return (
+        <div className="card">
+            <h1>{alert.displayName}</h1>
+            <p>{alert.description}</p>
 
-      <p>{alert.description}</p>
-      <p>{alert.id}</p>
+            <div className="card-row">
+                <span>עדיפות:</span>
+                <span>{alert.priority}</span>
+            </div>
 
-      <div className="card-bottom">
-        <span>{alert.priority}</span>
-        <span>{alert.arena}</span>
-      </div>
-    </div>
-  );
+            <div className="card-row">
+                <span>זירה:</span>
+                <span>{alert.arena}</span>
+            </div>
+
+            <div className="card-row">
+                <span>סטטוס:</span>
+                <span>{alert.status}</span>
+            </div>
+
+            <div className="card-row">
+                <span>קו אורך:</span>
+                <span>{alert.lon}</span>
+            </div>
+
+            <div className="card-row">
+                <span>קו רוחב:</span>
+                <span>{alert.lat}</span>
+            </div>
+
+            <div className="card-buttons">
+                <button type="button" onClick={onEdit}>
+                    עריכה
+                </button>
+                <button type="button" onClick={onDelete}>
+                    מחיקה
+                </button>
+            </div>
+        </div>
+    );
 }

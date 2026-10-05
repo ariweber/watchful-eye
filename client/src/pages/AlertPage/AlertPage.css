@@ -1,0 +1,8 @@
+.page {
+  padding: 1.5rem;
+  font: 1rem/1.5 system-ui, sans-serif;
+}
+
+.msg {
+  color: gray;
+}

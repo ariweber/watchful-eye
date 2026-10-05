@@ -33,7 +33,7 @@ export default function FormNewAlerts({ alert, onChange, onSubmit }: FormNewAler
       </label>
 
       <label className="field">
-        זירה
+        איזור
         <select name="arena" value={alert.arena} onChange={onChange}>
           <option value="North">North</option>
           <option value="Center">Center</option>
@@ -42,7 +42,7 @@ export default function FormNewAlerts({ alert, onChange, onSubmit }: FormNewAler
       </label>
 
       <label className="field">
-        איזור
+        סטטוס
         <select name="status" value={alert.status} onChange={onChange}>
           <option value="Active">Active</option>
           <option value="Handled">Handled</option>

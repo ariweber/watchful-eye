@@ -2,20 +2,33 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  max-width: 30rem;
+  margin: 1rem auto;
   padding: 1rem;
   border: 1px solid lightgrey;
   border-radius: 0.5rem;
-  font-size: small;
+  align-items: center;
+  font-weight: bold;
 }
 
-.card-top,
-.card-bottom {
+.card-row {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  color: gray;
 }
 
-.card-bottom {
-  font-size: 0.9rem;
-  color: gray;
+.card-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.card-buttons button {
+  margin-top: 0.6rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  background: black;
+  color: white;
+  cursor: pointer;
 }

@@ -25,12 +25,11 @@ export default function AlertsPage() {
       {error && <p className="error">{error}</p>}
 
       {!loading && !error && (
-        <>
+        <div className="content">
           <AlertsMap alerts={alerts} className="map" />
           <AlertsList alerts={alerts} />
-        </>
+        </div>
       )}
     </div>
   );
 }
-
