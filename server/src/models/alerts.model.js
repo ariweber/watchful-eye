@@ -2,7 +2,10 @@ import mongoose from "mongoose";
 
 const alertsSchema = new mongoose.Schema(
     {
-        displayName: String,
+        displayName: {
+            type: String,
+            required: true,
+        },
         description: {
             type: String,
             required: true,
@@ -10,17 +13,26 @@ const alertsSchema = new mongoose.Schema(
         priority: {
             type: String,
             enum: ["Low", "Medium", "High", "Critical"],
+            required: true,
         },
         arena: {
             type: String,
             enum: ["North", "South", "Center"],
+            required: true,
         },
         status: {
             type: String,
             enum: ["Active", "Handled"],
+            required: true,
         },
-        lon: Number,
-        lat: Number,
+        lon: {
+            type: Number,
+            required: true,
+        },
+        lat: {
+            type: Number,
+            required: true,
+        },
     },
 );
 
