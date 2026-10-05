@@ -1,0 +1,36 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 25rem;
+    margin: 0 auto;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field input,
+.field textarea,
+.field select {
+    padding: 0.8rem;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+}
+
+
+
+.field textarea {
+    height: 3rem;
+    resize: vertical;
+}
+
+.form button {
+    padding: 0.8rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background: rgb(56, 52, 52);
+    color: white;
+    cursor: pointer;
+}

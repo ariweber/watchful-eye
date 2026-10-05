@@ -1,10 +1,12 @@
 import { useEffect } from "react";
+import { Link } from "react-router";
 import "./AlertsPage.css";
 import { useAlertsStore } from "../../store/alerts.store";
 import AlertsList from "../../components/AlertsList/AlertsList";
+import AlertsMap from "../../components/AlertsMap";
 
 export default function AlertsPage() {
-  const { alerts, loading, error, fetchAlerts } = useAlertsStore();
+  const { alerts, loading, error, getAllAlerts: fetchAlerts } = useAlertsStore();
 
   useEffect(() => {
     fetchAlerts();
@@ -12,11 +14,23 @@ export default function AlertsPage() {
 
   return (
     <div className="page">
-      <h1>התראות</h1>
+      <div className="top">
+        <h1>התראות</h1>
+        <Link className="add" to="/new-alerts">
+          התראה חדשה
+        </Link>
+      </div>
 
       {loading && <p className="msg">loading...</p>}
       {error && <p className="error">{error}</p>}
-      {!loading && !error && <AlertsList alerts={alerts} />}
+
+      {!loading && !error && (
+        <>
+          <AlertsMap alerts={alerts} className="map" />
+          <AlertsList alerts={alerts} />
+        </>
+      )}
     </div>
   );
 }
+

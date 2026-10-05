@@ -1,7 +1,23 @@
 .page {
-  direction: rtl;
   padding: 1.5rem;
   font: 1rem/1.5 system-ui, sans-serif;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgb(193, 187, 187);
+  border-radius: 0.5rem;
+  background: black;
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
 }
 
 .msg {
@@ -9,5 +25,12 @@
 }
 
 .error {
-  color: crimson;
+  color: red;
+}
+
+.map {
+  margin-top: 1rem;
+  border: 1px solid rgb(193, 187, 187);
+  border-radius: 8px;
+  overflow: hidden;
 }
