@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const createSchema = z.object({
+export const bodyAlertsSchema = z.object({
     displayName: z.string().optional(),
     description: z.string(),
     priority: z.enum(["Low", "Medium", "High", "Critical"]).optional(),
