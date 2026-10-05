@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import alertsRouter from "./routes/alerts.route.js"
 import "dotenv/config";
 import "./db/mongo.js"
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+app.use("api/alerts", alertsRouter)
 
 app.get("/health", (_req, res) => {
     res.json({ status: "ok" });

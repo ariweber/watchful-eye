@@ -24,4 +24,4 @@ const alertsSchema = new mongoose.Schema(
     },
 );
 
-export const alerts = mongoose.model("alerts", alertsSchema);
+export const alerts = mongoose.model("Alerts", alertsSchema);
