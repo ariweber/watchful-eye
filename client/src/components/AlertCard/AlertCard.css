@@ -1,0 +1,21 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid lightgrey;
+  border-radius: 0.5rem;
+  font-size: small;
+}
+
+.card-top,
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card-bottom {
+  font-size: 0.9rem;
+  color: gray;
+}
