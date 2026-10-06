@@ -42,7 +42,21 @@ async function login({ email, password }) {
     };
 }
 
+async function getMe(id) {
+    const user = await usersRepo.getUserByID(id);
+    if (!user) throw createError(404, "user not found");
+
+    return {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        role: user.role,
+        assignedArena: user.assignedArena,
+    };
+}
+
 export const authService = {
     register,
     login,
+    getMe,
 };
