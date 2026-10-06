@@ -1,8 +1,8 @@
 import { alertsService } from "../services/alerts.service.js";
 
-export async function getAllAlerts(_req, res, next) {
+export async function getAllAlerts(req, res, next) {
     try {
-        const alerts = await alertsService.getAllAlerts();
+        const alerts = await alertsService.getAllAlerts(req.user);
         res.json(alerts);
     } catch (error) {
         next(error);
@@ -20,7 +20,7 @@ export async function createAlert(req, res, next) {
 
 export async function getAlertById(req, res, next) {
     try {
-        const alert = await alertsService.getAlertById(req.params.id);
+        const alert = await alertsService.getAlertById(req.params.id, req.user);
         res.json(alert);
     } catch (error) {
         next(error);
@@ -40,7 +40,7 @@ export async function deleteAlert(req, res, next) {
     try {
         const alert = await alertsService.deleteAlert(req.params.id);
         res.json(alert);
-    } catch (err) {
-        next(err);
+    } catch (error) {
+        next(error);
     }
 }
