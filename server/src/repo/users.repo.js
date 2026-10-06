@@ -1,6 +1,6 @@
 import { users } from "../models/users.models.js";
 
-async function toUser(user) {
+function toUser(user) {
     if (!user) return null;
     return {
         id: user._id.toString(),
@@ -23,22 +23,22 @@ async function getAllUsers() {
 }
 
 async function getUserByEmail(email) {
-    return await toUser(await users.findOne({ email }));
+    return toUser(await users.findOne({ email }));
 }
 
 async function getUserByID(id) {
     const user = await users.findById(id);
-    return await toUser(user);
+    return toUser(user);
 }
 
 async function updateUser(id, newUser) {
     const user = await users.findByIdAndUpdate(id, newUser, { new: true });
-    return await toUser(user);
+    return toUser(user);
 }
 
 async function deleteUser(id) {
     const user = await users.findByIdAndDelete(id);
-    return await toUser(user);
+    return toUser(user);
 }
 
 export const usersRepo = {

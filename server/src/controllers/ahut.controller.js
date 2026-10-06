@@ -3,7 +3,7 @@ import { usersRepo } from "../repo/users.repo.js";
 
 export async function getAll(_req, res, next) {
     try {
-        const users = usersRepo.getAllUsers();
+        const users = await usersRepo.getAllUsers();
         res.json(users);
     } catch (error) {
         next(error);
