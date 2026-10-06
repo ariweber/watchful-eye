@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { Alert, NewAlert, UpdateAlert } from "../types/alerts.type";
+import { getError } from "../utils/getError";
 import {
     createAlert,
     deleteAlert,
@@ -30,8 +31,8 @@ export const useAlertsStore = create<AlertsStore>((set) => ({
         try {
             const alerts = await getAllAlerts();
             set({ alerts, loading: false });
-        } catch {
-            set({ error: "Request failed", loading: false });
+        } catch (error) {
+            set({ error: getError(error), loading: false });
         }
     },
     addAlert: async (newAlert) => {
@@ -39,8 +40,8 @@ export const useAlertsStore = create<AlertsStore>((set) => ({
         try {
             const alert = await createAlert(newAlert);
             set((state) => ({ alerts: [...state.alerts, alert] }));
-        } catch {
-            set({ error: "Request failed" });
+        } catch (error) {
+            set({ error: getError(error) });
         }
     },
     getAlertById: async (id) => {
@@ -48,8 +49,8 @@ export const useAlertsStore = create<AlertsStore>((set) => ({
         try {
             const alert = await getAlertById(id);
             set({ alert, loading: false });
-        } catch {
-            set({ error: "Request failed", loading: false });
+        } catch (error) {
+            set({ error: getError(error), loading: false });
         }
     },
     editAlert: async (id, updatedAlert) => {
@@ -62,8 +63,8 @@ export const useAlertsStore = create<AlertsStore>((set) => ({
                 ) => (item.id === id ? alert : item)),
                 alert: state.alert?.id === id ? alert : state.alert,
             }));
-        } catch {
-            set({ error: "Request failed" });
+        } catch (error) {
+            set({ error: getError(error) });
         }
     },
     removeAlert: async (id) => {
@@ -73,8 +74,8 @@ export const useAlertsStore = create<AlertsStore>((set) => ({
             set((state) => ({
                 alerts: state.alerts.filter((item) => item.id !== id),
             }));
-        } catch {
-            set({ error: "Request failed" });
+        } catch (error) {
+            set({ error: getError(error) });
         }
     },
 }));

@@ -17,7 +17,7 @@ export default function AlertPage() {
 
   const handleDelete = async () => {
     if (alert) await removeAlert(alert.id);
-    navigate("/");
+    navigate("/alerts");
   };
 
   return (

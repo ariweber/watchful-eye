@@ -32,7 +32,7 @@ export default function AlertsNewPage() {
             lon: Number(alert.lon),
             lat: Number(alert.lat),
         });
-        navigate("/");
+        navigate("/alerts");
     };
 
     return (
