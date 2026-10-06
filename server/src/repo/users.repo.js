@@ -12,8 +12,8 @@ async function toUser(user) {
     };
 }
 
-async function createUser(user) {
-    const user = await users.create(user);
+async function createUser(newUser) {
+    const user = await users.create(newUser);
     return toUser(user);
 }
 
@@ -49,3 +49,4 @@ export const usersRepo = {
     updateUser,
     deleteUser,
 };
+
