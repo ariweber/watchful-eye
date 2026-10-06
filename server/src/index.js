@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import alertsRouter from "./routes/alerts.route.js";
+import authRouter from "./routes/auth.route.js"
 import { errorHandler } from "./midddlweare/errorHandler.js";
 import "dotenv/config";
 import "./db/mongo.js";
@@ -14,6 +15,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 app.use("/api/alerts", alertsRouter);
+app.use("api/auth", alertsRouter)
 
 app.get("/health", (_req, res) => {
     res.json({ status: "ok" });
