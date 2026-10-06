@@ -55,8 +55,22 @@ async function getMe(id) {
     };
 }
 
+async function deleteUser(id) {
+    const user = await usersRepo.deleteUser(id);
+    if (!user) throw createError(404, "user not found");
+
+    return {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        role: user.role,
+        assignedArena: user.assignedArena,
+    };
+}
+
 export const authService = {
     register,
     login,
     getMe,
+    deleteUser,
 };

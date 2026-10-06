@@ -1,4 +1,14 @@
 import { authService } from "../services/auth.service.js";
+import { usersRepo } from "../repo/users.repo.js";
+
+export async function getAll(_req, res, next) {
+    try {
+        const users = usersRepo.getAllUsers();
+        res.json(users);
+    } catch (error) {
+        next(error);
+    }
+}
 
 export async function register(req, res, next) {
     try {
@@ -21,6 +31,15 @@ export async function login(req, res, next) {
 export async function me(req, res, next) {
     try {
         const user = await authService.getMe(req.user.id);
+        res.json(user);
+    } catch (error) {
+        next(error);
+    }
+}
+
+export async function deleteUser(req, res, next) {
+    try {
+        const user = await authService.deleteUser(req.params.id);
         res.json(user);
     } catch (error) {
         next(error);
