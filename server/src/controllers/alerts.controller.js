@@ -29,7 +29,11 @@ export async function getAlertById(req, res, next) {
 
 export async function updateAlert(req, res, next) {
     try {
-        const alert = await alertsService.updateAlert(req.params.id, req.body);
+        const alert = await alertsService.updateAlert(
+            req.params.id,
+            req.body,
+            req.user,
+        );
         res.json(alert);
     } catch (error) {
         next(error);
