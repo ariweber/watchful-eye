@@ -14,6 +14,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/alerts" element={<AlertsPage />} />
           <Route path="/new-alerts" element={<AlertsNewPage />} />

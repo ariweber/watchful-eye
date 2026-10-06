@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { LoginResponse, LoginUser, NewUser, User } from "../types/users.type";
 
-const api = axios.create({ baseURL: "http://localhost:3000//api/auth" });
+const api = axios.create({ baseURL: "http://localhost:3001/api/auth" });
 
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem("token");

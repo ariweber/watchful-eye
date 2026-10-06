@@ -5,3 +5,23 @@
     border-bottom: 1px solid gainsboro;
     font-size: 1rem;
 }
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.nav .link,
+.nav .logout {
+    padding: 0.4rem 0.75rem;
+    border: 1px solid rgb(193, 187, 187);
+    border-radius: 0.5rem;
+    background: black;
+    color: white;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+}

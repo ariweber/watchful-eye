@@ -1,7 +1,13 @@
 import axios from "axios";
 import type { Alert, NewAlert, UpdateAlert } from "../types/alerts.type";
 
-const api = axios.create({ baseURL: "http://localhost:3000" });
+const api = axios.create({ baseURL: "http://localhost:3001" });
+
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem("token");
+    if (token) config.headers.Authorization = `Bearer ${token}`;
+    return config;
+});
 
 export async function getAllAlerts() {
     const respons = await api.get<Alert[]>("/api/alerts");
